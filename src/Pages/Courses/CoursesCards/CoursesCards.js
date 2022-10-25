@@ -3,7 +3,6 @@ import CourseCardSummary from '../CourseCardSummary/CourseCardSummary';
 import Row from 'react-bootstrap/Row';
 
 const CoursesCards = ({ courses }) => {
-    console.log(courses);
     return (
         <div>
             <h1 className='fs-2 text-warning'>All the courses summary</h1>

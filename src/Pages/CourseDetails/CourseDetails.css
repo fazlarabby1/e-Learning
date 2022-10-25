@@ -1,0 +1,9 @@
+.details-card {
+    width: 70%;
+}
+
+@media only screen and (max-width: 450px) {
+    .details-card {
+        width: 100%;
+    }
+}
