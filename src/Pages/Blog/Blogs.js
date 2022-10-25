@@ -1,10 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const Blogs = () => {
     return (
-        <div className=''>
+        <div>
             <Card className="w-75 mx-auto my-3">
                 <Card.Header className='bg-dark fs-4 fw-semibold text-light'>What is cors?</Card.Header>
                 <Card.Body>
