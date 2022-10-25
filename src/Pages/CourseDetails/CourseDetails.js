@@ -26,7 +26,7 @@ const CourseDetails = () => {
                         <p> {description} </p>
                     </>
                 <Link to={`/purchase/${id}`} className='d-flex justify-content-center text-decoration-none'>
-                    <Button className='fs-5' variant="primary">Purchase</Button>
+                    <Button className='fs-4 px-5 py-2' variant="primary">Purchase</Button>
                 </Link>
             </Card.Body>
         </Card>

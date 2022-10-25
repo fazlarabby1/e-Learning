@@ -16,7 +16,7 @@ const Header = () => {
                     <Link className='text-decoration-none fs-4 fst-italic text-light' to="/">Navbar Scroll</Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className=''>
-                        <Form className="d-flex me-auto my-2 my-lg-0">
+                        <Form className="d-flex me-auto my-3 my-lg-0">
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
