@@ -1,5 +1,5 @@
 import React from 'react';
-import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import { CDBFooter, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 import logo from '../../../assets/images/navBrand.png';
 import { FaRegEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -17,11 +17,11 @@ const Footer = () => {
                                 <span className="ml-3 h5 font-weight-bold">Devwares</span>
                             </Link>
                             <p className="my-3" style={{ width: '250px' }}>
-                               <span className='fs-5 d-flex align-items-center text-muted'><FaRegEnvelope className='me-1'/>fazlarabby41@gmail.com</span>
-                               <span className='fs-5 d-flex align-items-center text-muted'><FaPhoneAlt className='me-1'/>5984614</span>
-                               <span className='fs-5 d-flex align-items-center text-muted'><FaMapMarkerAlt className='me-1'/>Cumilla, Bangladesh</span>
+                                <span className='fs-5 d-flex align-items-center text-muted'><FaRegEnvelope className='me-1' />fazlarabby41@gmail.com</span>
+                                <span className='fs-5 d-flex align-items-center text-muted'><FaPhoneAlt className='me-1' />5984614</span>
+                                <span className='fs-5 d-flex align-items-center text-muted'><FaMapMarkerAlt className='me-1' />Cumilla, Bangladesh</span>
                             </p>
-                            <CDBBox display="flex" className="mt-4">
+                            <CDBBox display="flex" className="mt-4 mb-2 mb-md-0">
                                 <CDBBtn flat color="dark">
                                     <CDBIcon fab icon="facebook-f" />
                                 </CDBBtn>
@@ -37,21 +37,21 @@ const Footer = () => {
                             <p className="h5 mb-4" style={{ fontWeight: '600' }}>
                                 Devwares
                             </p>
-                            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-                                <Link to='/courses' className='text-dark fw-semibold'><CDBFooterLink>Courses</CDBFooterLink></Link>
-                                <Link to='/blogs' className='text-dark fw-semibold'><CDBFooterLink>Blogs</CDBFooterLink></Link>
-                                <Link to='/faq' className='text-dark fw-semibold'><CDBFooterLink>FAQ</CDBFooterLink></Link>
+                            <CDBBox className='d-flex flex-column' style={{ cursor: 'pointer', padding: '0' }}>
+                                <Link to='/courses' className='text-primary fw-semibold'>Courses</Link>
+                                <Link to='/blogs' className='text-primary fw-semibold'>Blogs</Link>
+                                <Link to='/faq' className='text-primary fw-semibold'>FAQ</Link>
                             </CDBBox>
                         </CDBBox>
                         <CDBBox>
-                            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-                                Enroll
+                            <p className="h5 mb-4" style={{ fontWeight: '600', color: '#ff4d4d' }}>
+                                Join Us Now
                             </p>
-                            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-                                <Link to='/login' className='text-dark fw-semibold'>
-                                <CDBFooterLink >Login</CDBFooterLink>
+                            <CDBBox className='d-flex flex-column' style={{ cursor: 'pointer', padding: '0' }}>
+                                <Link to='/login' className='text-primary fw-semibold'>
+                                    Login
                                 </Link>
-                                <Link to='/registration' className='text-dark fw-semibold'><CDBFooterLink>Registration</CDBFooterLink></Link>
+                                <Link to='/registration' className='text-primary fw-semibold'>Registration</Link>
                             </CDBBox>
                         </CDBBox>
                     </CDBBox>

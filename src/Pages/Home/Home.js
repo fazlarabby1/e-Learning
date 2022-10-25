@@ -14,6 +14,7 @@ const Home = () => {
                     <Link className='d-flex justify-content-center text-decoration-none' to='/courses'><Button className='fw-semibold fs-5 px-3 text-danger' variant="warning">Courses</Button></Link>
                 </div>
             </div>
+            
         </div>
     );
 };
