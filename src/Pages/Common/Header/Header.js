@@ -5,16 +5,18 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/images/navBrand.png';
 
 const Header = () => {
     return (
         <div>
-            <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar className='py-md-0 py-lg-3' bg="dark" variant="dark" expand="lg">
                 <Container fluid className='container py-2'>
-                    <Navbar.Brand to="/">Navbar scroll</Navbar.Brand>
+                    <img src={logo} alt="Bootstrap" width="30" height="30" />
+                    <Link className='text-decoration-none fs-4 fst-italic text-light' to="/">Navbar Scroll</Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
-                        <Form className="d-flex me-auto">
+                    <Navbar.Collapse id="navbarScroll" className=''>
+                        <Form className="d-flex me-auto my-2 my-lg-0">
                             <Form.Control
                                 type="search"
                                 placeholder="Search"
@@ -24,17 +26,21 @@ const Header = () => {
                             <Button variant="outline-success">Search</Button>
                         </Form>
                         <Nav
-                            className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '100px' }}
+                            className="me-auto my-lg-0"
+                            style={{ maxHeight: '300px' }}
                             navbarScroll
                         >
-                            <Link className='me-2' to="/home"><Button variant="outline-info">Home</Button></Link>
-                            <Link className='me-2' to="/courses"><Button variant="outline-info">Courses</Button></Link>
-                            <Link className='me-2' to="/blogs"><Button variant="outline-info">Blogs</Button></Link>
-                            <Link className='me-2' to="/faq"><Button variant="outline-info">FAQ</Button></Link>
+                            <Nav>
+                                <Link className='me-2 my-2 my-lg-0' to="/home"><Button variant="outline-info">Home</Button></Link>
+                                <Link className='me-2 my-2 my-lg-0' to="/courses"><Button variant="outline-info">Courses</Button></Link>
+                                <Link className='me-2 my-2 my-lg-0' to="/blogs"><Button variant="outline-info">Blogs</Button></Link>
+                                <Link className='me-2 my-2 my-lg-0' to="/faq"><Button variant="outline-info">FAQ</Button></Link>
+                            </Nav>
+                            <Nav className='ms-lg-5'>
+                                <Link className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>
+                            </Nav>
                         </Nav>
-                        
-                        <Link to="/login"><Button variant="outline-info">Login</Button></Link>
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
