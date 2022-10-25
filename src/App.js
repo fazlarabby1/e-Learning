@@ -1,10 +1,11 @@
 import './App.css';
+import Blogs from './Pages/Blog/Blogs';
 
 function App() {
   
   return (
-    <div className="App" id='theme'>
-      
+    <div className="">
+      <Blogs></Blogs>
     </div>
   );
 }
