@@ -29,7 +29,7 @@ const UserProfile = () => {
     }
     return (
         <div className='container my-4'>
-            <Form onSubmit={handleSubmitChange} className='w-75 px-5 py-5 mx-auto shadow rounded'>
+            <Form onSubmit={handleSubmitChange} className='w-75 px-3 py-5 mx-auto shadow rounded'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control readOnly defaultValue={user?.email} type="email" placeholder="Enter email" />

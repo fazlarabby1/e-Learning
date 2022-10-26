@@ -1,3 +1,33 @@
+## About My e-Learning project
+*****************
+Client Site Live Link: 
+Client Site Repository Link:
+
+*****************
+Server Site Live Link: 
+Server Site Repository Link:
+
+*****************
+Framework ana libraries used in this project are:
+# react-bootstrap, bootstrap, react-hot-toast, react-icons, react router, firebase authentication system, swiper js, and cdbreact for converting react to pdf.
+
+*****************
+This project is based on Computer Science and Engineering. I have collected 6 CSE related courses information and created a fake DB server. Each course has a course title, image, id, description, total student number, and ratings.
+
+*****************
+There are total 6 options in the header. Each of them contains some information.
+
+*****************
+There are total 3 login systems. These are Email and Password, Google, and GitHub. After login the user's photo will be visible in the header and by clicking that photo one can check their profile.
+
+*****************
+In the courses page, all the courses name are visible on the left side, and the courses summary are shown in cards. Clicking the course details button of the summary card will take the user to a dynamic route which contains the whole information of the course.
+
+*****************
+There is a Get Premium access button in the course details card. One must login to this site to visit this link.
+
+Hope, I will develop this site further more. Keep me in your prayers.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
