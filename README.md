@@ -1,11 +1,11 @@
 ## About My e-Learning project
 *****************
-Client Site Live Link: 
-Client Site Repository Link:
+Client Site Live Link: https://assignment-10-e-cse.web.app/
+Client Site Repository Link: https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-fazlarabby1#readme
 
 *****************
-Server Site Live Link: 
-Server Site Repository Link:
+Server Site Live Link: https://assignment-10-server-eight.vercel.app
+Server Site Repository Link: https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-fazlarabby1
 
 *****************
 Framework ana libraries used in this project are:
