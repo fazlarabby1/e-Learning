@@ -24,8 +24,8 @@ const CourseDetails = () => {
                         </Card.Text>
                         <p> {description} </p>
                     </>
-                    <p className='btn btn-primary fs-4 w-25 d-flex justify-content-center mx-auto'>
-                        <Link to={`/purchase/${id}`} className='text-decoration-none text-light'>Purchase Course
+                    <p className='btn btn-dark fs-4 w-25 d-flex justify-content-center mx-auto'>
+                        <Link to={`/purchase/${id}`} className='text-decoration-none text-warning'>Get Premium Access
                         </Link>
                     </p>
                 </Card.Body>

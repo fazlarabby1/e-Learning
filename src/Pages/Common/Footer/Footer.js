@@ -51,7 +51,7 @@ const Footer = () => {
                                 <Link to='/login' className='text-primary fw-semibold'>
                                     Login
                                 </Link>
-                                <Link to='/registration' className='text-primary fw-semibold'>Registration</Link>
+                                <Link to='/register' className='text-primary fw-semibold'>Registration</Link>
                             </CDBBox>
                         </CDBBox>
                     </CDBBox>

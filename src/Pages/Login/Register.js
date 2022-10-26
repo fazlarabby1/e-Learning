@@ -8,26 +8,41 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
 
 const Register = () => {
-    const {createUSer} = useContext(AuthContext);
+    const { createUSer, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [accept, setAccept] = useState(false);
 
-    const handleRegistration = event =>{
+    const handleRegistration = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password)
-        
+
         createUSer(email, password)
-        .then(result =>{
-            const user = result.user;
-            // console.log(user)
-            setError('');
-            form.reset();
-        })
-        .catch(error => setError(error));
+            .then(result => {
+                const user = result.user;
+                // console.log(user)
+                setError('');
+                form.reset();
+                handleUserProfileUpdate(name, photo);
+            })
+            .catch(error => setError(error));
+    }
+
+    const handleUserProfileUpdate = (name, photo) => {
+        const profile = {
+            displayName: name,
+            photoURL: photo
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error => console.error(error))
+    }
+
+    const handleAccept = event =>{
+        setAccept(event.target.checked);
     }
 
     return (
@@ -57,9 +72,9 @@ const Register = () => {
                             <span className='fs-5'>Already have an account? Please <Link to='/login'>Log In</Link></span>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label={<>Accept <Link to='/terms'>Terms & Conditions</Link></>} />
+                            <Form.Check type="checkbox" onClick={handleAccept} label={<>Accept <Link to='/faq'>Terms & Conditions</Link></>} />
                         </Form.Group>
-                        <Button className='px-4' variant="primary" type="submit">
+                        <Button className='px-4' variant="primary" type="submit" disabled={!accept}>
                             Register
                         </Button>
                     </Form>

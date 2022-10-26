@@ -8,6 +8,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/navBrand.png';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FaUserAlt } from 'react-icons/fa';
+import { Image } from 'react-bootstrap';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -47,10 +49,16 @@ const Header = () => {
                                 <Link className='me-2 my-2 my-lg-0' to="/faq"><Button variant="outline-info">FAQ</Button></Link>
                             </Nav>
                             <Nav className='ms-lg-5'>
-                                {user ?
+                                {user?.uid ?
                                     <div className='d-flex d-lg-block flex-column'>
-                                        <span className='text-info ms-2'>User</span>
-                                        <Link onClick={handleSignOut} className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Log Out</Button></Link>
+                                        <Link onClick={handleSignOut} className='mx-lg-3 my-2 my-lg-0' to="/login"><Button variant="outline-info">Log Out</Button></Link>
+                                        <Link to="/profile">
+                                                {
+                                                    user?.photoURL ?
+                                                        <Image title={user?.displayName} style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
+                                                        <FaUserAlt></FaUserAlt>
+                                                }
+                                            </Link>
                                     </div> 
                                     :
                                     <Link className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>

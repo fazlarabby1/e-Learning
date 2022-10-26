@@ -2,17 +2,20 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider, GithubAuthProvider  } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useState } from 'react';
 
 const Login = () => {
-    const { logIn, providerLogin } = useContext(AuthContext);
+    const { logIn, providerLogin, setLoading } = useContext(AuthContext);
     const [error, setError] = useState('');
     const googleProvider = new GoogleAuthProvider();
-    const gitHubProvider = new GithubAuthProvider ();
+    const gitHubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     const handleLogIn = event => {
         event.preventDefault();
@@ -26,8 +29,13 @@ const Login = () => {
                 console.log(user);
                 setError('')
                 form.reset();
+                if(user){
+                    navigate(from, { replace: true });
+                    setLoading(false)
+                }
             })
             .catch(error => setError(error))
+            
     }
 
     const handleGoogleSingIn = () => {
