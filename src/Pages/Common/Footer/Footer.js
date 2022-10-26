@@ -14,7 +14,7 @@ const Footer = () => {
                         <CDBBox>
                             <Link to="/" className="d-flex align-items-center p-0 text-dark">
                                 <img alt="logo" src={logo} width="30px" />
-                                <span className="ml-3 h5 font-weight-bold">Devwares</span>
+                                <span className="ml-3 h5 font-weight-bold">e-<span className='text-warning'>Learning</span></span>
                             </Link>
                             <p className="my-3" style={{ width: '250px' }}>
                                 <span className='fs-5 d-flex align-items-center text-muted'><FaRegEnvelope className='me-1' />fazlarabby41@gmail.com</span>
@@ -35,7 +35,7 @@ const Footer = () => {
                         </CDBBox>
                         <CDBBox>
                             <p className="h5 mb-4" style={{ fontWeight: '600' }}>
-                                Devwares
+                                e-<span className='text-warning'>Learning</span>
                             </p>
                             <CDBBox className='d-flex flex-column' style={{ cursor: 'pointer', padding: '0' }}>
                                 <Link to='/courses' className='text-primary fw-semibold'>Courses</Link>
@@ -55,7 +55,7 @@ const Footer = () => {
                             </CDBBox>
                         </CDBBox>
                     </CDBBox>
-                    <small className="text-center mt-5">&copy; Devwares, 2020. All rights reserved.</small>
+                    <small className="text-center mt-5">&copy; e-<span className='text-warning'>Learning</span>, 2020. All rights reserved.</small>
                 </CDBBox>
             </CDBFooter>
         </div>

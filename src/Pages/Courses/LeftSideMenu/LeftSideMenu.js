@@ -13,7 +13,7 @@ const LeftSideMenu = () => {
         <div>
             <h1 className='fs-3 text-danger'>Courses List</h1>
             {
-                courses.map(course => <p key={course.id}><Link to={`/coursedetails/${course.id}`}>{course.course_name}</Link></p>)
+                courses.map(course => <p key={course.id}><Link className='text-decoration-none' to={`/coursedetails/${course.id}`}>{course.course_name}</Link></p>)
             }
         </div>
     );

@@ -13,7 +13,7 @@ const Header = () => {
             <Navbar className='py-md-0 py-lg-3' bg="dark" variant="dark" expand="lg">
                 <Container fluid className='container py-2'>
                     <img src={logo} alt="Bootstrap" width="30" height="30" />
-                    <Link className='text-decoration-none fs-4 fst-italic text-light' to="/">Navbar Scroll</Link>
+                    <Link className='text-decoration-none fs-4 fst-italic text-light' to="/">e-<span className='text-warning'>Learning</span></Link>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className=''>
                         <Form className="d-flex me-auto my-3 my-lg-0">
