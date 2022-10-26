@@ -7,14 +7,18 @@ import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const UserProfile = () => {
-    const {user} = useContext(AuthContext);
-    const [name, setName] = useState(user.displayName);
-    const photoURLRef = useRef(user.photoURL);
+    const {user, setLoading} = useContext(AuthContext);
+    const [name, setName] = useState(user?.displayName);
+    const photoURLRef = useRef(user?.photoURL);
     const [confirmed, setConfirmed] = useState(false);
 
     const handleSubmitChange = event =>{
         event.preventDefault();
-        console.log(photoURLRef.current.value);
+        // console.log(photoURLRef.current.value);
+        const form = event.target;
+        const newName = form.name.value;
+        user.displayName = newName;
+        setLoading(false)
     }
     const handleUpdateName = event =>{
         setName(event.target.value);
@@ -33,7 +37,7 @@ const UserProfile = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control onChange={handleUpdateName} defaultValue={name} type="text" placeholder="Name" />
+                    <Form.Control onChange={handleUpdateName} defaultValue={name} type="text" name='name' placeholder="Name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
