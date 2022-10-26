@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -6,8 +7,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/navBrand.png';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut= () =>{
+        logOut()
+        .then(()=>{})
+        .catch(error=> console.error(error))
+    }
+    console.log(user);
     return (
         <div>
             <Navbar className='py-md-0 py-lg-3' bg="dark" variant="dark" expand="lg">
@@ -37,10 +47,16 @@ const Header = () => {
                                 <Link className='me-2 my-2 my-lg-0' to="/faq"><Button variant="outline-info">FAQ</Button></Link>
                             </Nav>
                             <Nav className='ms-lg-5'>
-                                <Link className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>
+                                {user ?
+                                    <div className='d-flex d-lg-block flex-column'>
+                                        <span className='text-info ms-2'>User</span>
+                                        <Link onClick={handleSignOut} className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Log Out</Button></Link>
+                                    </div> 
+                                    :
+                                    <Link className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>
+                                }
                             </Nav>
                         </Nav>
-
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
