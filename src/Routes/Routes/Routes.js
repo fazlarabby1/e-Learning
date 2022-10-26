@@ -9,6 +9,7 @@ import FAQ from '../../Pages/FAQ/FAQ';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Register from '../../Pages/Login/Register';
+import ResetPassword from '../../Pages/Login/ResetPassword/ResetPassword';
 import PurchaseCourse from '../../Pages/PurchaseCourse/PurchaseCourse';
 import UserProfile from '../../Pages/User/UserProfile/UserProfile';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';

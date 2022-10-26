@@ -5,32 +5,38 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/navBrand.png';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
 import { Image } from 'react-bootstrap';
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [theme, setTheme] = useState("Dark");
+    const [theme, setTheme] = useState(null);
 
     const handleSignOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                toast.success('Successfully Logged Out', { autoclose: 500 })
+            })
             .catch(error => console.error(error))
     }
 
     const handleTheme = event => {
-        const defaultTheme = event.target;
-        if (defaultTheme.innerText === "Dark") {
-            setTheme("Light")
-            defaultTheme.innerText = theme;
+        setTheme(event.target.innerText);
+        if (theme === "Dark") {
+            setTheme("Light");
+            event.target.innerText = "Light";
+            
+            toast.success('Light Mode Enabled', { autoclose: 500 });
         }
         else {
             setTheme("Dark")
-            defaultTheme.innerText = theme;
+            event.target.innerText = "Dark";
+            toast.success('Dark Mode Enabled', { autoclose: 500 });
         }
     }
     return (
@@ -55,12 +61,12 @@ const Header = () => {
                             style={{ maxHeight: '300px' }}
                             navbarScroll
                         >
-                            <Nav>
-                                <Link className='me-2 my-2 my-lg-0' to="/home"><Button variant="outline-info">Home</Button></Link>
-                                <Link className='me-2 my-2 my-lg-0' to="/courses"><Button variant="outline-info">Courses</Button></Link>
-                                <Link className='me-2 my-2 my-lg-0' to="/blogs"><Button variant="outline-info">Blogs</Button></Link>
-                                <Link className='me-2 my-2 my-lg-0' to="/faq"><Button variant="outline-info">FAQ</Button></Link>
-                                <Link><Button onClick={handleTheme} className='me-2 my-2 my-lg-0' variant="outline-info">Dark</Button></Link>
+                            <Nav className='ms-2'>
+                                <NavLink className="me-2 ms-lg-2 ms-0 my-2 my-lg-0" to="/home"><Button variant="outline-info">Home</Button></NavLink>
+                                <NavLink className='me-2 my-2 my-lg-0' to="/courses"><Button variant="outline-info">Courses</Button></NavLink>
+                                <NavLink className='me-2 my-2 my-lg-0' to="/blogs"><Button variant="outline-info">Blogs</Button></NavLink>
+                                <NavLink className='me-2 my-2 my-lg-0' to="/faq"><Button variant="outline-info">FAQ</Button></NavLink>
+                                <NavLink><Button onClick={handleTheme} className='me-2 my-2 my-lg-0' variant="outline-info">Dark</Button></NavLink>
                             </Nav>
                             <Nav className='ms-lg-5'>
                                 {user?.uid ?
@@ -75,7 +81,7 @@ const Header = () => {
                                         </Link>
                                     </div>
                                     :
-                                    <Link className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>
+                                    <Link className='ms-lg-5 my-2 ms-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>
                                 }
                             </Nav>
                         </Nav>

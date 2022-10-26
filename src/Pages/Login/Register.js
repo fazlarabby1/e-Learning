@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const { createUSer, updateUserProfile } = useContext(AuthContext);
@@ -26,9 +27,13 @@ const Register = () => {
                 // console.log(user)
                 setError('');
                 form.reset();
+                toast.success('Successfully Registered', { autoclose: 500 })
                 handleUserProfileUpdate(name, photo);
             })
-            .catch(error => setError(error));
+            .catch(error => {
+                setError(error);
+                toast.error('Opp!! An error occurred', { autoclose: 500 })
+            });
     }
 
     const handleUserProfileUpdate = (name, photo) => {

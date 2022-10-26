@@ -1,7 +1,7 @@
 import React, { } from 'react';
 import { createContext } from 'react';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, updateProfile, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, updateProfile, sendPasswordResetEmail, getAuth } from 'firebase/auth';
 import app from '../../firebase/firebase.config'
 import { useEffect } from 'react';
 
@@ -14,36 +14,40 @@ const AuthProvider = ({ children }) => {
 
     const createUSer = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth , email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const logIn = (email, password) =>{
+    const logIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const logOut = () =>{
+    const logOut = () => {
         setLoading(true);
         return signOut(auth);
     }
 
-    const providerLogin = (provider) =>{
+    const providerLogin = (provider) => {
         setLoading(true);
-        return signInWithPopup(auth , provider);
+        return signInWithPopup(auth, provider);
     }
 
-    const updateUserProfile = (profile) =>{
+    const updateUserProfile = (profile) => {
         setLoading(true);
         return updateProfile(auth.currentUser, profile);
     }
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, currentUser=>{
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
         })
         return () => unSubscribe();
-    },[])
+    }, [])
 
     const authInfo = {
         user,
@@ -52,6 +56,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         providerLogin,
         updateUserProfile,
+        resetPassword,
         loading,
         setLoading
     };
