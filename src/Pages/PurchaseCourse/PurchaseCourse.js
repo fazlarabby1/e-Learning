@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { FaUsers, FaStar } from "react-icons/fa";
 
 const PurchaseCourse = () => {
@@ -30,6 +30,9 @@ const PurchaseCourse = () => {
                     <span className='d-flex align-items-center'><FaStar className='me-2 text-warning' /><span className='fs-5 text-muted'>{ratings}</span></span>
                 </Card.Footer>
             </Card>
+            <p className='mt-5 btn btn-primary text-center w-25 d-flex justify-content-center mx-auto'>
+                <Link className='text-decoration-none text-light' to='/courses' >View All Courses</Link>
+            </p>
         </div>
     );
 };

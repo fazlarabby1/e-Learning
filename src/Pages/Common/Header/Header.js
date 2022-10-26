@@ -10,16 +10,29 @@ import logo from '../../../assets/images/navBrand.png';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUserAlt } from 'react-icons/fa';
 import { Image } from 'react-bootstrap';
+import { useState } from 'react';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [theme, setTheme] = useState("Dark");
 
-    const handleSignOut= () =>{
+    const handleSignOut = () => {
         logOut()
-        .then(()=>{})
-        .catch(error=> console.error(error))
+            .then(() => { })
+            .catch(error => console.error(error))
     }
-    console.log(user);
+
+    const handleTheme = event => {
+        const defaultTheme = event.target;
+        if (defaultTheme.innerText === "Dark") {
+            setTheme("Light")
+            defaultTheme.innerText = theme;
+        }
+        else {
+            setTheme("Dark")
+            defaultTheme.innerText = theme;
+        }
+    }
     return (
         <div>
             <Navbar className='py-md-0 py-lg-3' bg="dark" variant="dark" expand="lg">
@@ -47,19 +60,20 @@ const Header = () => {
                                 <Link className='me-2 my-2 my-lg-0' to="/courses"><Button variant="outline-info">Courses</Button></Link>
                                 <Link className='me-2 my-2 my-lg-0' to="/blogs"><Button variant="outline-info">Blogs</Button></Link>
                                 <Link className='me-2 my-2 my-lg-0' to="/faq"><Button variant="outline-info">FAQ</Button></Link>
+                                <Link><Button onClick={handleTheme} className='me-2 my-2 my-lg-0' variant="outline-info">Dark</Button></Link>
                             </Nav>
                             <Nav className='ms-lg-5'>
                                 {user?.uid ?
                                     <div className='d-flex d-lg-block flex-column'>
-                                        <Link onClick={handleSignOut} className='mx-lg-3 my-2 my-lg-0' to="/login"><Button variant="outline-info">Log Out</Button></Link>
+                                        <Button onClick={handleSignOut} className='mx-lg-3 my-2 my-lg-0' variant="outline-info">Log Out</Button>
                                         <Link to="/profile">
-                                                {
-                                                    user?.photoURL ?
-                                                        <Image title={user?.displayName} style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
-                                                        <FaUserAlt></FaUserAlt>
-                                                }
-                                            </Link>
-                                    </div> 
+                                            {
+                                                user?.photoURL ?
+                                                    <Image title={user?.displayName} style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
+                                                    <FaUserAlt></FaUserAlt>
+                                            }
+                                        </Link>
+                                    </div>
                                     :
                                     <Link className='ms-lg-5 my-2 my-lg-0' to="/login"><Button variant="outline-info">Login</Button></Link>
                                 }

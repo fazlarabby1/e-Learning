@@ -1,20 +1,25 @@
 import React from 'react';
+import Pdf from "react-to-pdf";
 import Card from 'react-bootstrap/Card';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaUsers, FaStar } from "react-icons/fa";
+import { FaUsers, FaStar, FaDownload } from "react-icons/fa";
 import './CourseDetails.css';
+const ref = React.createRef();
 
 const CourseDetails = () => {
     const singleCourse = useLoaderData();
-    console.log(singleCourse);
     const { id, course_name, description, ratings, thumbnail_img, total_student } = singleCourse;
     return (
         <div className='container mt-5 details-card'>
-            <Card className='mx-auto'>
+
+            <h3 className='text-center mb-3 text-info'>Click to Download the PDF File <Pdf targetRef={ref} filename={course_name+".pdf"}>
+                {({ toPdf }) =><FaDownload onClick={toPdf} className='ms-5 text-success' />}
+            </Pdf></h3>
+            <Card className='mx-auto' ref={ref}>
                 <Card.Img variant="top" style={{ height: '500px' }} src={thumbnail_img} />
                 <Card.Body>
-                    <Card.Title className='text-center fs-3'><span className='text-decoration-underline'>Course Title</span>: {course_name}</Card.Title>
-
+                    <Card.Title className='text-center fs-3'><span className='text-decoration-underline'>Course Title</span>: {course_name}
+                    </Card.Title>
                     <hr />
                     <>
                         <Card.Text className='mt-3 d-flex justify-content-between'>
