@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 const CoursesCards = ({ courses }) => {
     return (
         <div>
-            <h1 className='fs-2 text-warning'>All the courses summary</h1>
+            <h1 className='fs-2 text-warning'>All courses summary</h1>
             <div>
             <Row xs={1} md={1} lg={2} xl={2} className="gy-5">
                     {

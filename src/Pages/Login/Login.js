@@ -9,6 +9,7 @@ import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import ResetPassword from './ResetPassword/ResetPassword';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     const { logIn, providerLogin, setLoading } = useContext(AuthContext);
@@ -91,9 +92,10 @@ const Login = () => {
                             Submit
                         </Button>
                     </Form>
+                    <hr />
                     <div className='d-md-flex flex-column d-sm-block justify-content-center mx-auto'>
-                        <Button variant='dark' onClick={handleGoogleSingIn} className='px-4 my-2 mx-auto'><small>Sign In With Google</small></Button>
-                        <Button variant='dark' onClick={handleGitHubSigIn} className='px-4 mx-auto'><small>Sign In With GitHub</small></Button>
+                        <Button variant='dark' onClick={handleGoogleSingIn} className='px-4 my-2 mx-auto d-flex'><small><FaGoogle className='text-info fs-5 me-1' /> Google Sign In</small></Button>
+                        <Button variant='dark' onClick={handleGitHubSigIn} className='px-4 mx-auto d-flex'><small><FaGithub className='text-info fs-5 me-1' /> GitHub Sign In</small></Button>
                     </div>
                 </Card.Body>
             </Card>
