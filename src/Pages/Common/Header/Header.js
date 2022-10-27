@@ -75,7 +75,7 @@ const Header = () => {
                                         <Link to="/profile">
                                             {
                                                 user?.photoURL ?
-                                                    <Image title={user?.displayName} style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
+                                                    <Image title={user?.displayName} style={{ height: '40px' }} roundedCircle src={user?.photoURL}></Image> :
                                                     <FaUserAlt></FaUserAlt>
                                             }
                                         </Link>
