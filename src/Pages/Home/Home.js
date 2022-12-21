@@ -15,7 +15,7 @@ const Home = () => {
                     <Button className='fw-semibold fs-5 px-3 d-flex mx-auto' variant="warning"><Link className='text-decoration-none text-danger' to='/courses'>Courses</Link></Button>
                 </div>
             </div>
-            <div className='my-5'>
+            <div className='my-md-5 my-4'>
                 <h3 className='text-center text-info'>A glimpse of our courses</h3>
                 <CoursesSwiper></CoursesSwiper>
                 <p className='text-center fs-5'><Link to='/courses'>View All Courses</Link></p>

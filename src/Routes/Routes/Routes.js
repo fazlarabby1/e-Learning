@@ -55,7 +55,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <UserProfile></UserProfile>
+                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             },
             {
                 path: '/purchase/:id',

@@ -58,7 +58,7 @@ const Header = () => {
                         </Form>
                         <Nav
                             className="me-auto my-lg-0"
-                            style={{ maxHeight: '300px' }}
+                            style={{ maxHeight: '400px'}}
                             navbarScroll
                         >
                             <Nav className='ms-2'>
@@ -71,11 +71,11 @@ const Header = () => {
                             <Nav className='ms-lg-5'>
                                 {user?.uid ?
                                     <div className='d-flex d-lg-block flex-column'>
-                                        <Button onClick={handleSignOut} className='mx-lg-3 my-2 my-lg-0' variant="outline-info">Log Out</Button>
+                                        <NavLink><Button onClick={handleSignOut} className='mx-lg-3 my-2 my-lg-0' variant="outline-info">Log Out</Button></NavLink>
                                         <Link to="/profile">
                                             {
                                                 user?.photoURL ?
-                                                    <Image title={user?.displayName} style={{ height: '40px' }} roundedCircle src={user?.photoURL}></Image> :
+                                                    <Image title='Your Profile' style={{ height: '40px' }} roundedCircle src={user?.photoURL}></Image> :
                                                     <FaUserAlt></FaUserAlt>
                                             }
                                         </Link>

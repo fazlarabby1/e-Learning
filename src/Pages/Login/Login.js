@@ -29,13 +29,13 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 setError('')
                 form.reset();
                 if (user) {
-                    navigate(from, { replace: true });
                     setLoading(false)
                     toast.success('Successfully logged in', { autoclose: 500 })
+                    navigate(from, { replace: true });
                 }
             })
             .catch(error => {

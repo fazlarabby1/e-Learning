@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { useState } from 'react';
@@ -12,6 +12,9 @@ const Register = () => {
     const { createUSer, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [accept, setAccept] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
 
     const handleRegistration = event => {
         event.preventDefault();
@@ -23,12 +26,11 @@ const Register = () => {
 
         createUSer(email, password)
             .then(result => {
-                const user = result.user;
-                // console.log(user)
                 setError('');
                 form.reset();
-                toast.success('Successfully Registered', { autoclose: 500 })
+                toast.success('Successfully Registered', { autoclose: 500 });
                 handleUserProfileUpdate(name, photo);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error);
