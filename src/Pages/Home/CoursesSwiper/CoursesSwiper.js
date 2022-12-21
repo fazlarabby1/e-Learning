@@ -8,13 +8,18 @@ import './CoursesSwiper.css';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import { FaUsers, FaStar } from "react-icons/fa";
+import Loading from '../../../assets/Loading/Loading';
 
 const CoursesSwiper = () => {
     const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('https://assignment-10-server-eight.vercel.app/courses')
             .then(res => res.json())
-            .then(data => setCourses(data))
+            .then(data => {
+                setCourses(data);
+                setLoading(false);
+            })
     }, [])
     return (
         <>
@@ -44,16 +49,19 @@ const CoursesSwiper = () => {
                 className="swiper-container px-0"
             >
                 {
+                    loading && <Loading />
+                }
+                {
                     courses.map(course => <SwiperSlide key={course.id}>
                         <Card className='mb-5' style={{ width: '22rem', height: '20rem' }}>
                             <Card.Img className='h-50' variant="top" src={course.thumbnail_img} />
                             <Card.Body>
                                 <Card.Title className='fs-5 text-start'>Course Title: {course.course_name}</Card.Title>
                             </Card.Body>
-                                <Card.Footer className="text-muted className='mt-3 d-flex justify-content-between py-4'">
-                                    <span className='d-flex align-items-center'><FaUsers className='me-2' /><span className='fs-5 text-muted'>{course.total_student}students</span></span>
-                                    <span className='d-flex align-items-center'><FaStar className='me-2 text-warning' /><span className='fs-5 text-muted'>{course.ratings}</span></span>
-                                </Card.Footer>
+                            <Card.Footer className="text-muted className='mt-3 d-flex justify-content-between py-4'">
+                                <span className='d-flex align-items-center'><FaUsers className='me-2' /><span className='fs-5 text-muted'>{course.total_student}students</span></span>
+                                <span className='d-flex align-items-center'><FaStar className='me-2 text-warning' /><span className='fs-5 text-muted'>{course.ratings}</span></span>
+                            </Card.Footer>
                         </Card>
                     </SwiperSlide>)
                 }

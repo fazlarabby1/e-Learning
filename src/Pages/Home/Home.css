@@ -1,6 +1,6 @@
 .home {
     background-image: url(../../assets/images/home.jpg);
-    height: 40em;
+    height: 25em;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: rgb(0,0,0,0.7);
@@ -17,7 +17,7 @@ p{
     }
     .home {
         background-image: url(../../assets/images/home.jpg);
-        height: 45rem;
+        height: 25rem;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         /* margin-top: 0px; */
