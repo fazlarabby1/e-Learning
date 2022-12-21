@@ -9,7 +9,7 @@ const PurchaseCourse = () => {
     const { course_name, ratings, thumbnail_img, total_student } = course;
     console.log(course);
     return (
-        <div className='container my-5'>
+        <div className='container mt-5 mb-3'>
             <h2 className='text-center text-info mb-3'>Join Now to Get Discount on Our Membership</h2>
             <Card className="text-center mt-4 mt-md-0">
                 <span className="fs-5 position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger">
@@ -30,7 +30,7 @@ const PurchaseCourse = () => {
                     <span className='d-flex align-items-center'><FaStar className='me-2 text-warning' /><span className='fs-5 text-muted'>{ratings}</span></span>
                 </Card.Footer>
             </Card>
-            <p className='mt-5 btn btn-primary text-center w-25 d-flex justify-content-center mx-auto'>
+            <p className='mt-4 btn btn-primary text-center w-25 d-flex justify-content-center mx-auto'>
                 <Link className='text-decoration-none text-light' to='/courses' >View All Courses</Link>
             </p>
         </div>

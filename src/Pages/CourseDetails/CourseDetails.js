@@ -35,7 +35,7 @@ const CourseDetails = () => {
                     </p>
                 </Card.Body>
             </Card>
-            <p className='mt-5 btn btn-primary text-center w-25 d-flex justify-content-center mx-auto'>
+            <p className='mt-4 btn btn-primary text-center w-25 d-flex justify-content-center mx-auto'>
                 <Link className='text-decoration-none text-light' to='/courses' >View All Courses</Link>
             </p>
         </div>

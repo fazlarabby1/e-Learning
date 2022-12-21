@@ -21,9 +21,9 @@ const CourseCardSummary = ({ course }) => {
                         </Card.Text>
                         <p>
                             {
-                                description.length === 200 ?
+                                description.length === 100 ?
                                     description :
-                                    description.slice(0, 200)
+                                    description.slice(0, 100)
                             }
                             <span className='fs-5'><Link to={`/coursedetails/${id}`} className='text-decoration-none'>...Read More</Link></span>
                         </p>
